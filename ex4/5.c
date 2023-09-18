@@ -19,6 +19,11 @@ int checkwin(char place[]){
 	else 
 		return 0;
 }
+void cleantable(char place[]){
+	  for (int i=0;i<10;i++){
+               place[i]=i+1; }
+
+}
 int main() {
 
 	char place[]= { '1','2','3','4','5','6','7','8','9'};
@@ -50,6 +55,7 @@ int validation = 0;
 	int win = checkwin(place);
 	if (win == 1){
 		printf ("GG EZ\n");
+	cleantable(place);
 }
 }
 return 0;
