@@ -50,7 +50,7 @@ int main() {
             int midv = numbers[mid];
 
             if (midv == value) {
-                printf("The number %d is found in the array %d\n", value, mid);
+                printf("The number %d is found in the INDEX %d\n", value, mid);
                 break;
             } else if (midv < value) {
                 low = mid + 1;
