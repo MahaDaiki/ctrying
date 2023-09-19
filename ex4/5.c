@@ -2,7 +2,7 @@
 #include<stdio.h>
 void printtable(char place[]){
 	  
-        for (int i=0;i<10;i++){
+        for (int i=0;i<9;i++){
                 printf("%c",place[i]);
                 if((i+1) % 3 == 0) printf("\n");
                 else { printf ("|");}
@@ -20,8 +20,10 @@ int checkwin(char place[]){
 		return 0;
 }
 void cleantable(char place[]){
-	  for (int i=0;i<10;i++){
-               place[i]=i+1; }
+	int j = 49;
+	  for (int i=0;i<9;i++){
+               place[i]=j;
+		j++; }
 
 }
 int main() {
@@ -30,13 +32,14 @@ int main() {
 	printtable(place);
 char  value, x='X' ;
 int i;
+char c;
 
 while(1){
 int validation = 0;
 	printf("your choice:\n");
 	scanf (" %c" ,&value);
 	
-	for ( int i =0 ;i<10;i++){
+	for ( int i =0 ;i<9;i++){
 	if ( place[i]==value){
 		place[i]=x;validation = 1;
 	}
@@ -51,12 +54,24 @@ int validation = 0;
         else{
                 x='X';
         }
-	
 	int win = checkwin(place);
 	if (win == 1){
 		printf ("GG EZ\n");
-	cleantable(place);
+		
+          printf("Do you want to continue?(Y/N)\n");
+		scanf("%c",&c);
+                if (c == 'Y' || c == 'y'){
+                        cleantable(place);
+                }
+                else if (c == 'n' || c == 'N'){
+               		 printf("Exit\n");
+			break;
+			}
+		else {
+			printf("invalid choice\n");
+			}
 }
 }
 return 0;
 }
+
