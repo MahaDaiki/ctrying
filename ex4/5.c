@@ -12,7 +12,7 @@ printf("\n");
 }
 int checkwin(char place[]){
 	if ( (place[0] == place[1] && place[0] == place[2]) ||(place[0]==place[3] && place[0] ==place [6]) ||
-	(place[0] == place[4] && place[0] == place[8]) ||(place[3]==place[4] && place[3] ==place [5]) || (place[6] == place[7] && place[6] == place[8]) ||(place[2]==place[4] && place[2] ==place [6]) ){
+	(place[0] == place[4] && place[0] == place[8]) ||(place[3]==place[4] && place[3] ==place [5]) || (place[6] == place[7] && place[6] == place[8]) ||(place[2]==place[4] && place[2] ==place [6]) || (place[1] == place[4] && place[1] == place[7]) ||(place[2]==place[5] && place[2] ==place [8]) ){
 		printf (" winner ");
 	return 1;
 }
@@ -33,12 +33,13 @@ int main() {
 char  value, x='X' ;
 int i;
 char c;
-
 while(1){
 int validation = 0;
 	printf("your choice:\n");
 	scanf (" %c" ,&value);
-	
+	if ( value == 'r' || value == 'R' ){
+		cleantable(place);
+		 printtable(place);}
 	for ( int i =0 ;i<9;i++){
 	if ( place[i]==value){
 		place[i]=x;validation = 1;
@@ -59,13 +60,14 @@ int validation = 0;
 		printf ("GG EZ\n");
 		
           printf("Do you want to continue?(Y/N)\n");
-		scanf("%c",&c);
+		scanf(" %c",&c);
                 if (c == 'Y' || c == 'y'){
                         cleantable(place);
+			 printtable(place);
                 }
                 else if (c == 'n' || c == 'N'){
                		 printf("Exit\n");
-			break;
+			return 0;
 			}
 		else {
 			printf("invalid choice\n");
